@@ -1,0 +1,52 @@
+# syntax=docker/dockerfile:1.21.0
+
+
+# FROM oven/bun:1.3.2-alpine AS builder
+# Use node because of bun issue blocking at `Creating an optimized production build ...`
+# https://github.com/oven-sh/bun/issues/17136
+# https://github.com/oven-sh/bun/issues/4795
+FROM node:22-alpine AS builder
+
+# RUN apk add --no-cache wget
+
+RUN npm install -g bun@1.3.9
+
+
+# Create app directory
+WORKDIR /workspace
+
+# Copy package files for caching
+COPY ./package.json ./bun.lock ./
+
+# Install all dependencies (dev + prod) (frozen for reproducible builds)
+RUN bun install
+
+# Copy the rest of the source code
+# Remove directories to keep the image slim
+COPY . .
+
+# Build every package in the workspace (uses the root "build" script)
+RUN bun run build
+
+# Set working directory to the website package and build it
+WORKDIR /workspace/apps/website
+
+ENV NODE_ENV=production
+
+# Create and use a non-root user for security
+RUN addgroup -S app && adduser -S app -G app && chown -R app:app ./
+
+USER app
+
+# Expose the API port (defaults to 3100 via .env, can be overridden)
+EXPOSE 3000
+
+HEALTHCHECK CMD true
+
+# HEALTHCHECK --interval=30s --timeout=5s --start-period=60s --retries=3 \
+#   CMD \
+#     wget -qO- http://localhost:3000/ > /dev/null || exit 1 && \
+#     wget -qO- http://localhost:3000/doc/environment/nextjs > /dev/null || exit 1
+
+# Start the website
+CMD ["bun", "run", "--bun", "vite", "preview"] 
