@@ -54,7 +54,12 @@ export const Navbar: FC<NavbarProps> = ({ mobileRollable = true }) => {
 	return (
 		<UINavBar
 			logo={
-				<Link href={logo.url.value} label={logo.label.value} color="text">
+				<Link
+					href={logo.url.value}
+					label={logo.label.value}
+					isExternalLink={false}
+					color="text"
+				>
 					<LogoWithText className="max-h-6 w-auto flex-auto sm:max-h-6" />
 				</Link>
 			}
@@ -68,7 +73,9 @@ export const Navbar: FC<NavbarProps> = ({ mobileRollable = true }) => {
 						href={url.value}
 						label={label.value}
 						isExternalLink={false}
-						isActive={selectedChoice === getCleanChoice(url.value)}
+						aria-current={
+							selectedChoice === getCleanChoice(url.value) ? "page" : undefined
+						}
 						color="text"
 						variant="invisible-link"
 						className="flex text-nowrap px-4 py-0.5 text-sm"

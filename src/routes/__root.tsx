@@ -1,4 +1,3 @@
-import { TanStackDevtools } from "@tanstack/react-devtools";
 import type { QueryClient } from "@tanstack/react-query";
 import {
 	createRootRouteWithContext,
@@ -6,13 +5,14 @@ import {
 	Scripts,
 	useMatches,
 } from "@tanstack/react-router";
-import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 import { defaultLocale, getHTMLTextDir } from "intlayer";
 import { IntlayerProvider } from "react-intlayer";
+import { BackgroundLayout } from "#/components/BackgroundLayout";
 import { Footer } from "../components/Footer";
 import Header from "../components/Header";
+import { IntlayerMarkdownProvider } from "../components/IntlayerMarkdownProvider";
+import { ThemeProvider } from "../components/ThemeProvider";
 import PostHogProvider from "../integrations/posthog/provider";
-import TanStackQueryDevtools from "../integrations/tanstack-query/devtools";
 import TanStackQueryProvider from "../integrations/tanstack-query/root-provider";
 import appCss from "../styles.css?url";
 
@@ -62,14 +62,19 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 			</head>
 			<body className="relative flex min-h-screen flex-col overflow-x-clip scroll-smooth bg-background leading-8 transition md:flex text-text">
 				<IntlayerProvider locale={locale}>
-					<PostHogProvider>
-						<TanStackQueryProvider>
-							<Header />
-							{children}
-							<Footer />
-				
-						</TanStackQueryProvider>
-					</PostHogProvider>
+					<ThemeProvider>
+						<IntlayerMarkdownProvider>
+							<PostHogProvider>
+								<TanStackQueryProvider>
+									<BackgroundLayout>
+										<Header />
+										{children}
+										<Footer />
+									</BackgroundLayout>
+								</TanStackQueryProvider>
+							</PostHogProvider>
+						</IntlayerMarkdownProvider>
+					</ThemeProvider>
 				</IntlayerProvider>
 				<Scripts />
 			</body>

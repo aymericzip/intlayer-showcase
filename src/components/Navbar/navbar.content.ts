@@ -1,5 +1,5 @@
 import { type Dictionary, t } from "intlayer";
-import { AppRoutes, WebsiteRoutes, ExternalLinks, PagesRoutes } from "@/route";
+import { AppRoutes, ExternalLinks, PagesRoutes, WebsiteRoutes } from "@/route";
 
 type SectionsContent = {
 	sections: {
@@ -55,7 +55,7 @@ export const navbarContent = {
 				vi: "Logo công ty - Đến trang chủ",
 				uk: "Логотип компанії — перейти на головну сторінку",
 			}),
-			url	: WebsiteRoutes.Home,
+			url: WebsiteRoutes.Home,
 		},
 		sections: [
 			{
@@ -302,7 +302,6 @@ export const navbarContent = {
 				vi: "Đi đến kho GitHub",
 				uk: "Перейти до репозиторію на GitHub",
 			}),
-			
 		},
 		discord: {
 			url: ExternalLinks.Discord,

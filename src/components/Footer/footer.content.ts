@@ -1,6 +1,6 @@
 import type { LinkGroup } from "@intlayer/design-system";
 import { type Dictionary, t } from "intlayer";
-import { ExternalLinks, PagesRoutes } from "../../route";
+import { ExternalLinks, WebsiteRoutes } from "../../route";
 
 type FooterContent = {
 	content: LinkGroup[];
@@ -14,7 +14,7 @@ const footerContent = {
 				title: "Docs",
 				links: [
 					{
-						href: PagesRoutes.Doc,
+						href: WebsiteRoutes.Doc,
 						text: t({
 							en: "Getting started",
 							"en-GB": "Getting started",
@@ -57,7 +57,7 @@ const footerContent = {
 						}),
 					},
 					{
-						href: PagesRoutes.Doc_Environment_NextJS_15,
+						href: WebsiteRoutes.Doc_Environment_NextJS_15,
 						text: t({
 							en: "Intlayer with Next.js",
 							"en-GB": "Intlayer with Next.js",
@@ -101,7 +101,7 @@ const footerContent = {
 					},
 
 					{
-						href: PagesRoutes.Doc_Environment_ViteAndReact,
+						href: WebsiteRoutes.Doc_Environment_ViteAndReact,
 						text: t({
 							en: "Intlayer with Vite and React",
 							"en-GB": "Intlayer with Vite and React",
@@ -144,7 +144,7 @@ const footerContent = {
 						}),
 					},
 					{
-						href: PagesRoutes.Doc_Environment_ViteAndVue,
+						href: WebsiteRoutes.Doc_Environment_ViteAndVue,
 						text: t({
 							en: "Intlayer with vue and vite",
 							"en-GB": "Intlayer with vue and vite",
@@ -407,7 +407,7 @@ const footerContent = {
 				}),
 				links: [
 					{
-						href: PagesRoutes.Contributors,
+						href: WebsiteRoutes.Contributors,
 						text: t({
 							en: "Contributors",
 							"en-GB": "Contributors",
@@ -450,7 +450,7 @@ const footerContent = {
 						}),
 					},
 					{
-						href: PagesRoutes.TermsOfService,
+						href: WebsiteRoutes.TermsOfService,
 						text: t({
 							en: "Terms of service",
 							"en-GB": "Terms of service",
@@ -493,7 +493,7 @@ const footerContent = {
 						}),
 					},
 					{
-						href: PagesRoutes.PrivacyPolicy,
+						href: WebsiteRoutes.PrivacyPolicy,
 						text: t({
 							en: "Privacy Notice",
 							"en-GB": "Privacy Notice",

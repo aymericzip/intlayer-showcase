@@ -3,26 +3,6 @@ import { type Dictionary, insert, t } from 'intlayer';
 const localeSwitcherContent = {
   key: 'locale-switcher',
   content: {
-    defaultLocaleName: t({
-      ar: 'اختر لغة',
-      de: 'Wählen Sie eine Sprache',
-      en: 'Select a language',
-      'en-GB': 'Select a language',
-      es: 'Seleccione un idioma',
-      fr: 'Sélectionnez une langue',
-      hi: 'भाषा चुनें',
-      it: 'Seleziona una lingua',
-      ja: '言語を選択',
-      ko: '언어를 선택하세요',
-      pt: 'Selecione um idioma',
-      ru: 'Выберите язык',
-      tr: 'Bir dil seçin',
-      zh: '选择语言',
-      pl: 'Wybierz język',
-      id: 'Pilih bahasa',
-      vi: 'Chọn ngôn ngữ',
-      uk: 'Оберіть мову',
-    }),
     localeSwitcherLabel: t({
       ar: 'مبدل اللغة',
       de: 'Sprachwechsler',

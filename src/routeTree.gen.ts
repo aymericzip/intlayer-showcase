@@ -11,8 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as Char123LocaleChar125RouteRouteImport } from './routes/{-$locale}/route'
 import { Route as Char123LocaleChar125IndexRouteImport } from './routes/{-$locale}/index'
+import { Route as Char123LocaleChar125SubmitRouteImport } from './routes/{-$locale}/submit'
 import { Route as Char123LocaleChar125404RouteImport } from './routes/{-$locale}/404'
 import { Route as Char123LocaleChar125SplatRouteImport } from './routes/{-$locale}/$'
+import { Route as Char123LocaleChar125ProjectProjectIdRouteImport } from './routes/{-$locale}/project.$projectId'
 
 const Char123LocaleChar125RouteRoute =
   Char123LocaleChar125RouteRouteImport.update({
@@ -26,6 +28,12 @@ const Char123LocaleChar125IndexRoute =
     path: '/',
     getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
+const Char123LocaleChar125SubmitRoute =
+  Char123LocaleChar125SubmitRouteImport.update({
+    id: '/submit',
+    path: '/submit',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
+  } as any)
 const Char123LocaleChar125404Route = Char123LocaleChar125404RouteImport.update({
   id: '/404',
   path: '/404',
@@ -37,24 +45,36 @@ const Char123LocaleChar125SplatRoute =
     path: '/$',
     getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
+const Char123LocaleChar125ProjectProjectIdRoute =
+  Char123LocaleChar125ProjectProjectIdRouteImport.update({
+    id: '/project/$projectId',
+    path: '/project/$projectId',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/{-$locale}': typeof Char123LocaleChar125RouteRouteWithChildren
   '/{-$locale}/$': typeof Char123LocaleChar125SplatRoute
   '/{-$locale}/404': typeof Char123LocaleChar125404Route
+  '/{-$locale}/submit': typeof Char123LocaleChar125SubmitRoute
   '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
+  '/{-$locale}/project/$projectId': typeof Char123LocaleChar125ProjectProjectIdRoute
 }
 export interface FileRoutesByTo {
   '/{-$locale}/$': typeof Char123LocaleChar125SplatRoute
   '/{-$locale}/404': typeof Char123LocaleChar125404Route
+  '/{-$locale}/submit': typeof Char123LocaleChar125SubmitRoute
   '/{-$locale}': typeof Char123LocaleChar125IndexRoute
+  '/{-$locale}/project/$projectId': typeof Char123LocaleChar125ProjectProjectIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/{-$locale}': typeof Char123LocaleChar125RouteRouteWithChildren
   '/{-$locale}/$': typeof Char123LocaleChar125SplatRoute
   '/{-$locale}/404': typeof Char123LocaleChar125404Route
+  '/{-$locale}/submit': typeof Char123LocaleChar125SubmitRoute
   '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
+  '/{-$locale}/project/$projectId': typeof Char123LocaleChar125ProjectProjectIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -62,15 +82,24 @@ export interface FileRouteTypes {
     | '/{-$locale}'
     | '/{-$locale}/$'
     | '/{-$locale}/404'
+    | '/{-$locale}/submit'
     | '/{-$locale}/'
+    | '/{-$locale}/project/$projectId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/{-$locale}/$' | '/{-$locale}/404' | '/{-$locale}'
+  to:
+    | '/{-$locale}/$'
+    | '/{-$locale}/404'
+    | '/{-$locale}/submit'
+    | '/{-$locale}'
+    | '/{-$locale}/project/$projectId'
   id:
     | '__root__'
     | '/{-$locale}'
     | '/{-$locale}/$'
     | '/{-$locale}/404'
+    | '/{-$locale}/submit'
     | '/{-$locale}/'
+    | '/{-$locale}/project/$projectId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -93,6 +122,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123LocaleChar125IndexRouteImport
       parentRoute: typeof Char123LocaleChar125RouteRoute
     }
+    '/{-$locale}/submit': {
+      id: '/{-$locale}/submit'
+      path: '/submit'
+      fullPath: '/{-$locale}/submit'
+      preLoaderRoute: typeof Char123LocaleChar125SubmitRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
+    }
     '/{-$locale}/404': {
       id: '/{-$locale}/404'
       path: '/404'
@@ -107,20 +143,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123LocaleChar125SplatRouteImport
       parentRoute: typeof Char123LocaleChar125RouteRoute
     }
+    '/{-$locale}/project/$projectId': {
+      id: '/{-$locale}/project/$projectId'
+      path: '/project/$projectId'
+      fullPath: '/{-$locale}/project/$projectId'
+      preLoaderRoute: typeof Char123LocaleChar125ProjectProjectIdRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
+    }
   }
 }
 
 interface Char123LocaleChar125RouteRouteChildren {
   Char123LocaleChar125SplatRoute: typeof Char123LocaleChar125SplatRoute
   Char123LocaleChar125404Route: typeof Char123LocaleChar125404Route
+  Char123LocaleChar125SubmitRoute: typeof Char123LocaleChar125SubmitRoute
   Char123LocaleChar125IndexRoute: typeof Char123LocaleChar125IndexRoute
+  Char123LocaleChar125ProjectProjectIdRoute: typeof Char123LocaleChar125ProjectProjectIdRoute
 }
 
 const Char123LocaleChar125RouteRouteChildren: Char123LocaleChar125RouteRouteChildren =
   {
     Char123LocaleChar125SplatRoute: Char123LocaleChar125SplatRoute,
     Char123LocaleChar125404Route: Char123LocaleChar125404Route,
+    Char123LocaleChar125SubmitRoute: Char123LocaleChar125SubmitRoute,
     Char123LocaleChar125IndexRoute: Char123LocaleChar125IndexRoute,
+    Char123LocaleChar125ProjectProjectIdRoute:
+      Char123LocaleChar125ProjectProjectIdRoute,
   }
 
 const Char123LocaleChar125RouteRouteWithChildren =

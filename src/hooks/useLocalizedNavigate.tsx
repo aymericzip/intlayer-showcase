@@ -1,7 +1,7 @@
 import { useNavigate } from "@tanstack/react-router";
 import { getPrefix } from "intlayer";
 import { useLocale } from "react-intlayer";
-import { LOCALE_ROUTE } from "@/components/localized-link";
+import { LOCALE_ROUTE } from "@/components/Link";
 import type { FileRouteTypes } from "@/routeTree.gen";
 
 type StripLocalePrefix<T extends string> = T extends
